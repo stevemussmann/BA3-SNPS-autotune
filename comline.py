@@ -25,6 +25,12 @@ class ComLine():
 							required=True,
 							help="Specify number of loci in input file"
 		)
+		parser.add_argument("-r", "--reps",
+							dest="reps",
+							type=int,
+							default=1,
+							help="Specify maximum number of rounds of tuning parameters"
+		)
 		
 		self.args = parser.parse_args()
 

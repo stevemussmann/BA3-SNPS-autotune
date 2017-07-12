@@ -17,16 +17,19 @@ class Bayesass():
 		self.i = 10000
 		self.b = 1000
 
-	def run_program(self,string):
+	def run_program(self,string,i):
 		print(string)
+		stdout = str()
 		try:
 			process = subprocess.Popen(string, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 			output, err = process.communicate()
-			self.write_stdout(1,output)
+			stdout = self.write_stdout(i,output)
 		except:
 			print("Unexpected error:")
 			print(sys.exec_info())
 			raise SystemExit
+		return stdout
+		
 
 	def create_command(self):
 		ba_command = "BA3-SNPS -F " + self.fname + \
@@ -45,3 +48,4 @@ class Bayesass():
 		fh = open(fn, 'w')
 		fh.write(stdout)
 		fh.close()
+		return fn
