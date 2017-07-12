@@ -1,5 +1,6 @@
 from __future__ import print_function
 
+from decimal import *
 import subprocess
 import sys
 
@@ -11,14 +12,14 @@ class Bayesass():
 		self.fname = fname
 		self.loci = loci
 		self.out = out
-		self.m = 0.1
-		self.a = 0.1
-		self.f = 0.1
+		self.m = Decimal(0.1)
+		self.a = Decimal(0.1)
+		self.f = Decimal(0.1)
 		self.i = 10000
 		self.b = 1000
-		self.testedM = [0, 1]
-		self.testedA = [0, 1]
-		self.testedF = [0, 1]
+		self.testedM = [Decimal(0), Decimal(1)]
+		self.testedA = [Decimal(0), Decimal(1)]
+		self.testedF = [Decimal(0), Decimal(1)]
 
 	def run_program(self,string,i):
 		print(string)
@@ -44,7 +45,20 @@ class Bayesass():
 				" -f " + str(self.f) + \
 				" -o " + self.out + \
 				" -t -v -g -u"
+		self.add_tested()
+		print(self.testedM)
+		print(self.testedA)
+		print(self.testedF)
 		return ba_command
+
+	def add_tested(self):
+		self.testedM.append(Decimal(self.m))
+		self.testedA.append(Decimal(self.a))
+		self.testedF.append(Decimal(self.f))
+
+		self.testedM = sorted(self.testedM)
+		self.testedA = sorted(self.testedA)
+		self.testedF = sorted(self.testedF)
 
 	def write_stdout(self,runid,stdout):
 		fn = self.fname + "." + str(runid) + ".stdout"
