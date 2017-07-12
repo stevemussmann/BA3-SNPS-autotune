@@ -16,6 +16,9 @@ class Bayesass():
 		self.f = 0.1
 		self.i = 10000
 		self.b = 1000
+		self.testedM = [0, 1]
+		self.testedA = [0, 1]
+		self.testedF = [0, 1]
 
 	def run_program(self,string,i):
 		print(string)

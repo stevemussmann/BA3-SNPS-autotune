@@ -14,6 +14,7 @@ def main():
 		stdout = ba.run_program(command,i)
 		tune = Autotune(stdout,ba.m,ba.a,ba.f)
 		tune.read_stdout()
+		tune.determine_params()
 
 main()
 
