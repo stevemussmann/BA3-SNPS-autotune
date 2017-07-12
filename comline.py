@@ -11,13 +11,19 @@ class ComLine():
 		parser = argparse.ArgumentParser()
 		parser.add_argument("-i", "--immanc",
 							dest='immanc',
-							default="input.immanc",
+							required=True,
 							help="Specify a immanc file for input."
 		)
 		parser.add_argument("-o", "--out",
 							dest='out',
 							default="output.txt",
 							help="Specify an output file name."
+		)
+		parser.add_argument("-l", "--loci",
+							dest="loci",
+							type=int,
+							required=True,
+							help="Specify number of loci in input file"
 		)
 		
 		self.args = parser.parse_args()
