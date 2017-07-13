@@ -16,7 +16,11 @@ def main():
 		tune.read_stdout()
 		ba.m, ba.a, ba.f, mbool, abool, fbool = tune.determine_params(ba.testedM, ba.testedA, ba.testedF, ba.m, ba.a, ba.f)
 		if all((mbool, abool, fbool)):
+			earlyMessage = "Tuning completed early after " + str(i) + " rounds."
+			ba.write_final_params(earlyMessage)
 			raise SystemExit
+	lateMessage = "Tuning not completed after " + str(input.args.reps) + " rounds."
+	ba.write_final_params(lateMessage)
 
 main()
 

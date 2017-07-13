@@ -15,8 +15,8 @@ class Bayesass():
 		self.m = Decimal(0.1)
 		self.a = Decimal(0.1)
 		self.f = Decimal(0.1)
-		self.i = 10000
-		self.b = 1000
+		self.i = 100000
+		self.b = 10000
 		self.testedM = [Decimal(0), Decimal(1)]
 		self.testedA = [Decimal(0), Decimal(1)]
 		self.testedF = [Decimal(0), Decimal(1)]
@@ -66,3 +66,19 @@ class Bayesass():
 		fh.write(stdout)
 		fh.close()
 		return fn
+
+	def write_final_params(self,message):
+		fn = self.fname + "." + "finalParams.txt"
+		fh = open(fn, 'w')
+		fh.write("##")
+		fh.write(message)
+		fh.write("\n")
+		fh.write("##M\tA\tF")
+		fh.write("\n")
+		fh.write(str(round(self.m,4)))
+		fh.write("\t")
+		fh.write(str(round(self.a,4)))
+		fh.write("\t")
+		fh.write(str(round(self.f,4)))
+		fh.write("\n")
+		fh.close()
