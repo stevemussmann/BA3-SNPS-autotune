@@ -28,10 +28,10 @@ class Autotune():
 				print(self.currentM, self.currentA, self.currentF)
 
 	def determine_params(self, Mlist, Alist, Flist, M, A, F):
-		newM = self.decision(self.currentM, Mlist, M) #self.currentM = current acceptance rate for M, Mlist = previously used mixing parameter values
-		newA = self.decision(self.currentA, Alist, A)
-		newF = self.decision(self.currentF, Flist, F)
-		return newM, newA, newF
+		newM, Mbool = self.decision(self.currentM, Mlist, M) #self.currentM = current acceptance rate for M, Mlist = previously used mixing parameter values
+		newA, Abool = self.decision(self.currentA, Alist, A)
+		newF, Fbool = self.decision(self.currentF, Flist, F)
+		return newM, newA, newF, Mbool, Abool, Fbool
 
 	def decision(self, accept, testedList, parameter):
 		if accept > Decimal(0.45):
@@ -44,24 +44,24 @@ class Autotune():
 	def increase(self, parameter, testedList):
 		print("Increase")
 		element = bisect.bisect(testedList, parameter)
-		print(element)
+		#print(element)
 		newP = Decimal(((testedList[element]-testedList[element-1])/2)+testedList[element-1])
 		print(newP)
-		return newP
+		return newP, False
 
 	# may need to add safeguard to ensure negative array indices are not retrieved
 	def decrease(self, parameter, testedList):
 		print("Decrease")
 		element = bisect.bisect(testedList, parameter)
-		print(element-2)
+		#print(element-2)
 		newP = Decimal(testedList[element-1]-((testedList[element-1]-testedList[element-2])/2))
 		print(newP)
-		return newP
+		return newP, False
 
 	def same(self, parameter, testedList):
 		print("No change needed")
 		element = bisect.bisect(testedList, parameter)
-		print(element-1)
+		#print(element-1)
 		newP = Decimal(testedList[element-1])
 		print(newP)
-		return newP
+		return newP, True

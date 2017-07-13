@@ -14,7 +14,9 @@ def main():
 		stdout = ba.run_program(command,i)
 		tune = Autotune(stdout,ba.m,ba.a,ba.f)
 		tune.read_stdout()
-		ba.m, ba.a, ba.f = tune.determine_params(ba.testedM, ba.testedA, ba.testedF, ba.m, ba.a, ba.f)
+		ba.m, ba.a, ba.f, mbool, abool, fbool = tune.determine_params(ba.testedM, ba.testedA, ba.testedF, ba.m, ba.a, ba.f)
+		if all((mbool, abool, fbool)):
+			raise SystemExit
 
 main()
 
