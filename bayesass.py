@@ -28,6 +28,11 @@ class Bayesass():
 			process = subprocess.Popen(string, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 			output, err = process.communicate()
 			stdout = self.write_stdout(i,output)
+			if process.returncode != 0:
+				print("Non-zero exit status:")
+				print(process.returncode)
+				raise SystemExit
+			print(err)
 		except:
 			print("Unexpected error:")
 			print(sys.exec_info())

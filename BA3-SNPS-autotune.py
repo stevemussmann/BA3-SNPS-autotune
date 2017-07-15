@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/bin/env python
 
 from comline import ComLine
 from autotune import Autotune
