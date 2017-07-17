@@ -8,15 +8,15 @@ class Bayesass():
 	'Class for running the program Bayesass'
 	
 
-	def __init__(self, fname, loci, out):
+	def __init__(self, fname, loci, out, gen, burn):
 		self.fname = fname
 		self.loci = loci
 		self.out = out
 		self.m = Decimal(0.1)
 		self.a = Decimal(0.1)
 		self.f = Decimal(0.1)
-		self.i = 100000
-		self.b = 10000
+		self.i = gen
+		self.b = burn
 		self.testedM = [Decimal(0), Decimal(1)]
 		self.testedA = [Decimal(0), Decimal(1)]
 		self.testedF = [Decimal(0), Decimal(1)]

@@ -28,10 +28,21 @@ class ComLine():
 		parser.add_argument("-r", "--reps",
 							dest="reps",
 							type=int,
-							default=1,
+							default=15,
 							help="Specify maximum number of rounds of tuning parameters"
 		)
-		
+		parser.add_argument("-b", "--burnin",
+							dest="burnin",
+							type=int,
+							default=1000,
+							help="Specify burnin for Bayesass runs"
+		)
+		parser.add_argument("-g", "--generations",
+							dest="generations",
+							type=int,
+							default=10000,
+							help="Specify number of generations for Bayesass runs"
+		)
 		self.args = parser.parse_args()
 
 		#check if files exist
