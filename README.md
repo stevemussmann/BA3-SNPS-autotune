@@ -1,6 +1,6 @@
 # BA3-SNPS-autotune
 ## Description:
-This program will automatically tune mixing parameters for BA3-SNPs by conducting a 
+This program will automatically tune mixing parameters for BA3-SNPs by implementing a binary search algorithm and conducting short exploratory runs of BA3-SNPS.  
 
 ## Installation & Setup:
 
@@ -31,18 +31,24 @@ List of current required options:
 Optional arguments:
 * **-b / --burnin:** Specify the number of generations to be discarded as burnin by BA3-SNPS.  (Default = 1,000 generations)
 * **-g / --generations:** Specify the number of generations for each BA3-SNPS run.  (Default = 10,000 generations)
-* **-o / --out:** Specify an output file name.  (Default = "output.txt")
-* **-r / --reps:** Specify the maximum number of sequential BA3-SNPS runs to be conducted. (Default = 15)
+* **-o / --out:** Specify a bayesass output file name.  (Default = "output.txt")
+* **-r / --reps:** Specify the maximum number of sequential BA3-SNPS runs to be conducted. The program will exit early if suitable mixing parameters are detected by the program before conducting all of the specified runs. (Default = 15)
 
 ## Example:
 
-The following command will run the program from K values 1 through 10, conducting 10 repetitions at each K value.  Admixture will use all 16 processors available on the hypothetical machine, VCFtools will filter SNPs at an interval of 100bp, and the minor allele frequency filter in PLINK will drop any loci with a minor allele frequency less than 0.05:
+The following command will perform 10 repetitions of the program, each time discarding 10,000 generations as burnin and running for 100,000 generations.  The input file is reported to contain 1,000 SNPs:
 
 ```
-admixturePipeline.py -m popmap.txt -v input.vcf -k 1 -K 10 -n 16 -t 100 -a 5
+BA3-SNPS-autotune.py -i infile.immanc -l 1000 -b 10000 -g 100000 -r 10
 ```
+
+While running, the commands directed to BA3-SNPS will be printed to stdout, as well as the repetition number currently in progress.
 
 ## Outputs:
 
 For the example line of code above, the following outputs will be produced:
-* **input.ped**, **input.map**: output of plink
+* **output.txt**: The output produced by the final run of BA3-SNPS.
+* **infile.immanc.N.stdout**: One file will be produced for each run of BA3-SNPS, where N is replaced by the repetition number.  This file contains all information that BA3-SNPS would have printed to stdout.  For example, if suitable mixing parameters are found in the 3rd run of the program, the files infile.immanc.1.stdout, infile.immanc.2.stdout, and infile.immanc.3.stdout will be produced.
+* **infile.immanc.finalParams.txt**: This file contains the final values for the m, a, and f mixing parameters needed to run BA3-SNPS.
+* **infile.indiv.txt**: This is the indiv file produced by the final run of BA3-SNPS.
+* **infile.trace.txt**: This is the trace file produced by the final run of BA3-SNPS.
