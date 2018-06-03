@@ -51,9 +51,9 @@ class Bayesass():
 				" -o " + self.out + \
 				" -t -v -g -u"
 		self.add_tested()
-		print(self.testedM)
-		print(self.testedA)
-		print(self.testedF)
+		#print(self.testedM)
+		#print(self.testedA)
+		#print(self.testedF)
 		return ba_command
 
 	def add_tested(self):
