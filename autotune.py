@@ -25,7 +25,7 @@ class Autotune():
 				self.currentM = Decimal(templist[11].strip(',('))
 				self.currentA = Decimal(templist[13].strip(','))
 				self.currentF = Decimal(templist[14].strip(','))
-				print(self.currentM, self.currentA, self.currentF)
+				#print(self.currentM, self.currentA, self.currentF)
 
 	def determine_params(self, Mlist, Alist, Flist, M, A, F):
 		newM, Mbool = self.decision(self.currentM, Mlist, M) #self.currentM = current acceptance rate for M, Mlist = previously used mixing parameter values
