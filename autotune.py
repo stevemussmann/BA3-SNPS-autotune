@@ -42,26 +42,26 @@ class Autotune():
 			return self.same(parameter, testedList)		
 
 	def increase(self, parameter, testedList):
-		print("Increase")
+		#print("Increase")
 		element = bisect.bisect(testedList, parameter)
 		#print(element)
 		newP = Decimal(((testedList[element]-testedList[element-1])/2)+testedList[element-1])
-		print(newP)
+		#print(newP)
 		return newP, False
 
 	# may need to add safeguard to ensure negative array indices are not retrieved
 	def decrease(self, parameter, testedList):
-		print("Decrease")
+		#print("Decrease")
 		element = bisect.bisect(testedList, parameter)
 		#print(element-2)
 		newP = Decimal(testedList[element-1]-((testedList[element-1]-testedList[element-2])/2))
-		print(newP)
+		#print(newP)
 		return newP, False
 
 	def same(self, parameter, testedList):
-		print("No change needed")
+		#print("No change needed")
 		element = bisect.bisect(testedList, parameter)
 		#print(element-1)
 		newP = Decimal(testedList[element-1])
-		print(newP)
+		#print(newP)
 		return newP, True
