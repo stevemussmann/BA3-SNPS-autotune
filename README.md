@@ -51,6 +51,11 @@ The following command will perform 10 repetitions of the program, each time disc
 BA3-SNPS-autotune.py -i infile.immanc -l 1000 -b 10000 -g 100000 -r 10
 ```
 
+You can test the program using the provided example file (located in the example_files folder of this repository):
+```
+./BA3-SNPS-autotune.py -i spd_ARU+182+BOU.str.immanc -l 4819 -r 5
+```
+
 While running, the commands directed to BA3-SNPS will be printed to stdout, as well as the repetition number currently in progress.
 
 ## Outputs:
