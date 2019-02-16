@@ -2,19 +2,28 @@
 ## Description:
 This program will automatically tune mixing parameters for BA3-SNPs by implementing a binary search algorithm and conducting short exploratory runs of BA3-SNPS.  
 
+## Citation:
+An article describing this program and BA3-SNPS is currently in prep. For now, please cite this github repository if you use this program.
+
 ## Installation & Setup:
 
-This pipeline was written to be run on Unix based operating systems, such as the various Linux distributions and Mac OS X.  To get started, clone this project to the desired location on your computer.  
+This program now requires Python 3.3 or greater. BA3-SNPS-autotune was designed to work on Unix based operating systems, such as various Linux distributions and Mac OS X.  To get started, clone this project to the desired location on your computer.  
 
 You may have to modify the first line of the BA3-SNPS-autotune.py file, which by default reads:
 ```
-#!/usr/bin/env Python
+#!/usr/bin/env python3
 ```
 To find the location of your Python installation, you can type the following at the bash command prompt:
 ```
-which python
+which python3
 ```
 Then modify the first line of BA3-SNPS-autotune.py to reflect the location of your Python installation.
+
+You must also install my modified version of BayesAss (BayesAss3-SNPS: https://github.com/stevemussmann/BayesAss3-SNPs). This program must be installed so that an executable named either **BA3-SNPS** or **ba3-snps** is present in your path. The autotune program will test for the presence of BA3-SNPS and report if it is not found. Please note that the autotune program is not compatible with Dr. Bruce Rannala's version of BA3 because I have altered some command line options. 
+
+## Python 2.7.x Support
+
+Future development of this program will no longer support Python 2.7.x. However, I have made the source code available as version 1.0.0 on the "releases" page of this repository.
 
 ## Running the program:
 
@@ -52,3 +61,8 @@ For the example line of code above, the following outputs will be produced:
 * **infile.immanc.finalParams.txt**: This file contains the final values for the m, a, and f mixing parameters needed to run BA3-SNPS.
 * **infile.indiv.txt**: This is the indiv file produced by the final run of BA3-SNPS.
 * **infile.trace.txt**: This is the trace file produced by the final run of BA3-SNPS.
+
+## Development History and Bug Fixes:
+2019-02-16:
+* Converted the program to support Python3
+* Added a function to check for a BA3-SNPS installation
