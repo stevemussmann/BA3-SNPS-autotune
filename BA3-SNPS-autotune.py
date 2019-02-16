@@ -6,10 +6,25 @@ from autotune import Autotune
 from bayesass import Bayesass
 
 import sys
+import shutil
+
+def cmd_exists(cmd):
+	return shutil.which(cmd) is not None
 
 def main():
 	input = ComLine(sys.argv[1:])
-	ba = Bayesass(input.args.immanc, input.args.loci, input.args.out, input.args.generations, input.args.burnin)
+
+	executable = "BA3-SNPS"
+
+	if cmd_exists(executable) is False:
+		if cmd_exists("ba3-snps") is True:
+			executable = "ba3-snps"
+		else:
+			print("BA3-SNPS is not installed.")
+			print("Please install BA3-SNPS before proceeding.")
+			raise SystemExit
+
+	ba = Bayesass(executable, input.args.immanc, input.args.loci, input.args.out, input.args.generations, input.args.burnin)
 	for i in range(1, input.args.reps+1, 1):
 		print("Running repetition",i,"of",input.args.reps)
 		command = ba.create_command()

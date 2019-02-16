@@ -6,7 +6,8 @@ class Bayesass():
 	'Class for running the program Bayesass'
 	
 
-	def __init__(self, fname, loci, out, gen, burn):
+	def __init__(self, ename, fname, loci, out, gen, burn):
+		self.ename = ename
 		self.fname = fname
 		self.loci = loci
 		self.out = out
@@ -39,7 +40,7 @@ class Bayesass():
 		
 
 	def create_command(self):
-		ba_command = "BA3-SNPS -F " + self.fname + \
+		ba_command = self.ename + " -F " + self.fname + \
 				" -l " + str(self.loci) + \
 				" -i " + str(self.i) + \
 				" -b " + str(self.b) + \
