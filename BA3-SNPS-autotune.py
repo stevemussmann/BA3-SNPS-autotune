@@ -10,7 +10,7 @@ import sys
 def main():
 	input = ComLine(sys.argv[1:])
 	ba = Bayesass(input.args.immanc, input.args.loci, input.args.out, input.args.generations, input.args.burnin)
-	for i in xrange(1, input.args.reps+1, 1):
+	for i in range(1, input.args.reps+1, 1):
 		print("Running repetition",i,"of",input.args.reps)
 		command = ba.create_command()
 		stdout = ba.run_program(command,i)

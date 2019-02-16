@@ -68,7 +68,7 @@ class Bayesass():
 	def write_stdout(self,runid,stdout):
 		fn = self.fname + "." + str(runid) + ".stdout"
 		fh = open(fn, 'w')
-		fh.write(stdout)
+		fh.write(stdout.decode('utf-8'))
 		fh.close()
 		return fn
 
