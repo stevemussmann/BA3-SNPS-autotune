@@ -48,7 +48,7 @@ Optional arguments:
 The following command will perform 10 repetitions of the program, each time discarding 10,000 generations as burnin and running for 100,000 generations.  The input file is reported to contain 1,000 SNPs:
 
 ```
-BA3-SNPS-autotune.py -i infile.immanc -l 1000 -b 10000 -g 100000 -r 10
+./BA3-SNPS-autotune.py -i infile.immanc -l 1000 -b 10000 -g 100000 -r 10
 ```
 
 You can test the program using the provided example file (located in the example_files folder of this repository):
