@@ -60,12 +60,12 @@ While running, the commands directed to BA3-SNPS will be printed to stdout, as w
 
 ## Outputs:
 
-For the example line of code above, the following outputs will be produced:
-* **output.txt**: The output produced by the final run of BA3-SNPS.
+BA3-SNPS-autotune retains the output files for the run from which the optimal mixing parameters were derived. For the example line of code above, the following outputs will be produced:
+* **output.txt**: The output produced by the final run of BA3-SNPS. This file includes all parameters used to execute BA3-SNPS
 * **infile.immanc.N.stdout**: One file will be produced for each run of BA3-SNPS, where N is replaced by the repetition number.  This file contains all information that BA3-SNPS would have printed to stdout.  For example, if suitable mixing parameters are found in the 3rd run of the program, the files infile.immanc.1.stdout, infile.immanc.2.stdout, and infile.immanc.3.stdout will be produced.
 * **infile.immanc.finalParams.txt**: This file contains the final values for the m, a, and f mixing parameters needed to run BA3-SNPS.
 * **infile.indiv.txt**: This is the indiv file produced by the final run of BA3-SNPS.
-* **infile.trace.txt**: This is the trace file produced by the final run of BA3-SNPS.
+* **infile.trace.txt**: This is the MCMC trace file produced by the final run of BA3-SNPS.
 
 ## Development History and Bug Fixes:
 2019-02-16:
