@@ -24,7 +24,7 @@ def main():
 			print("Please install BA3-SNPS before proceeding.")
 			raise SystemExit
 
-	ba = Bayesass(executable, input.args.immanc, input.args.loci, input.args.out, input.args.generations, input.args.burnin)
+	ba = Bayesass(executable, input.args.immanc, input.args.loci, input.args.out, input.args.generations, input.args.burnin, input.args.seed)
 	for i in range(1, input.args.reps+1, 1):
 		print("Running repetition",i,"of",input.args.reps)
 		command = ba.create_command()

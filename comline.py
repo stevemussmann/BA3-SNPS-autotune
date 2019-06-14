@@ -21,25 +21,31 @@ class ComLine():
 							dest="loci",
 							type=int,
 							required=True,
-							help="Specify number of loci in input file"
+							help="Specify number of loci in input file."
 		)
 		parser.add_argument("-r", "--reps",
 							dest="reps",
 							type=int,
 							default=15,
-							help="Specify maximum number of rounds of tuning parameters"
+							help="Specify maximum number of rounds of tuning parameters."
 		)
 		parser.add_argument("-b", "--burnin",
 							dest="burnin",
 							type=int,
 							default=1000,
-							help="Specify burnin for Bayesass runs"
+							help="Specify burnin for Bayesass runs."
 		)
 		parser.add_argument("-g", "--generations",
 							dest="generations",
 							type=int,
 							default=10000,
-							help="Specify number of generations for Bayesass runs"
+							help="Specify number of generations for Bayesass runs."
+		)
+		parser.add_argument("-s", "--seed",
+							dest="seed",
+							type=int,
+							default=10,
+							help="Specify a random number seed."
 		)
 		self.args = parser.parse_args()
 

@@ -6,7 +6,7 @@ class Bayesass():
 	'Class for running the program Bayesass'
 	
 
-	def __init__(self, ename, fname, loci, out, gen, burn):
+	def __init__(self, ename, fname, loci, out, gen, burn, seed):
 		self.ename = ename
 		self.fname = fname
 		self.loci = loci
@@ -16,6 +16,7 @@ class Bayesass():
 		self.f = Decimal(0.1)
 		self.i = gen
 		self.b = burn
+		self.s = seed
 		self.testedM = [Decimal(0), Decimal(1)]
 		self.testedA = [Decimal(0), Decimal(1)]
 		self.testedF = [Decimal(0), Decimal(1)]
@@ -43,6 +44,7 @@ class Bayesass():
 		ba_command = self.ename + " -F " + self.fname + \
 				" -l " + str(self.loci) + \
 				" -i " + str(self.i) + \
+				" -s " + str(self.s) + \
 				" -b " + str(self.b) + \
 				" -m " + str(self.m) + \
 				" -a " + str(self.a) + \
