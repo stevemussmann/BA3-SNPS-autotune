@@ -34,14 +34,15 @@ You can run the program to print help options with the following command:
 ```
 
 List of current required options:
-* **-i / --immanc:** Specify an immanc-formatted file that will be passed by the program to BA3-SNPS.
+* **-i / --immanc:** Specify an immanc-formatted file that will be passed by the program to BA3-SNPs.
 * **-l / --loci:** Specify the number of loci in the input file.
 
 Optional arguments:
-* **-b / --burnin:** Specify the number of generations to be discarded as burnin by BA3-SNPS.  (Default = 1,000 generations)
+* **-b / --burnin:** Specify the number of generations to be discarded as burnin by BA3-SNPs.  (Default = 1,000 generations)
 * **-g / --generations:** Specify the number of generations for each BA3-SNPS run.  (Default = 10,000 generations)
 * **-o / --out:** Specify a bayesass output file name.  (Default = "output.txt")
 * **-r / --reps:** Specify the maximum number of sequential BA3-SNPS runs to be conducted. The program will exit early if suitable mixing parameters are detected by the program before conducting all of the specified runs. (Default = 15)
+* **-s / --seed:** Specify the random number seed to be used by BA3-SNPs (Default = 10).
 
 ## Example:
 
@@ -68,6 +69,9 @@ BA3-SNPS-autotune retains the output files for the run from which the optimal mi
 * **infile.trace.txt**: This is the MCMC trace file produced by the final run of BA3-SNPS. It can be loaded into a program such as Tracer for assessment (http://tree.bio.ed.ac.uk/software/tracer/).
 
 ## Development History and Bug Fixes:
+2019-06-15:
+* Added option for random number seed.
+
 2019-02-16:
-* Converted the program to support Python3
-* Added a function to check for a BA3-SNPS installation
+* Converted the program to support Python3.
+* Added a function to check for a BA3-SNPS installation.
