@@ -3,7 +3,7 @@
 This program will automatically tune mixing parameters for BA3-SNPs by implementing a binary search algorithm and conducting short exploratory runs of BA3-SNPS.  
 
 ## Citation:
-Our manuscript for BA3-SNPs has been accepted in Methods in Ecology and Evolution.  Please cite: **S.M. Mussmann, M.R. Douglas, T.K. Chafin, and M.E. Douglas 2019. BA3‐SNPs: Contemporary migration reconfigured in BayesAss for next‐generation sequence data. *Methods in Ecology and Evolution* https://doi.org/10.1111/2041-210X.13252.**
+Our manuscript for BA3-SNPs-autotune has been accepted in Methods in Ecology and Evolution.  Please cite: **S.M. Mussmann, M.R. Douglas, T.K. Chafin, and M.E. Douglas 2019. BA3‐SNPs: Contemporary migration reconfigured in BayesAss for next‐generation sequence data. *Methods in Ecology and Evolution* https://doi.org/10.1111/2041-210X.13252.**
 
 ## Installation & Setup:
 
