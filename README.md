@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/97031162.svg)](https://zenodo.org/badge/latestdoi/97031162)
+
 # BA3-SNPS-autotune
 ## Description:
 This program will automatically tune mixing parameters for BA3-SNPs by implementing a binary search algorithm and conducting short exploratory runs of BA3-SNPS.  
