@@ -35,7 +35,7 @@ class Bayesass():
 			print(err)
 		except:
 			print("Unexpected error:")
-			print(sys.exec_info())
+			print(sys.exc_info())
 			raise SystemExit
 		return stdout
 		
