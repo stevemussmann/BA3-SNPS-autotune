@@ -26,7 +26,7 @@ class ComLine():
 		parser.add_argument("-r", "--reps",
 							dest="reps",
 							type=int,
-							default=15,
+							default=10,
 							help="Specify maximum number of rounds of tuning parameters."
 		)
 		parser.add_argument("-b", "--burnin",
