@@ -43,7 +43,7 @@ Optional arguments:
 * **-b / --burnin:** Specify the number of generations to be discarded as burnin by BA3-SNPs.  (Default = 1,000 generations)
 * **-g / --generations:** Specify the number of generations for each BA3-SNPS run.  (Default = 10,000 generations)
 * **-o / --out:** Specify a bayesass output file name.  (Default = "output.txt")
-* **-r / --reps:** Specify the maximum number of sequential BA3-SNPS runs to be conducted. The program will exit early if suitable mixing parameters are detected by the program before conducting all of the specified runs. (Default = 15)
+* **-r / --reps:** Specify the maximum number of sequential BA3-SNPS runs to be conducted. The program will exit early if suitable mixing parameters are detected by the program before conducting all of the specified runs. Generally, running >10 replicates is not helpful as the largest jumps in parameter values occur in the earliest replicates (~ the first 5). Part of this command's purpose is to prevent the program from running forever if acceptable parameters cannot be found for a file. (Default = 10)
 * **-s / --seed:** Specify the random number seed to be used by BA3-SNPs (Default = 10).
 
 ## Example:
