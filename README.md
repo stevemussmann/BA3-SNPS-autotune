@@ -7,7 +7,7 @@ This program will automatically tune mixing parameters for BA3-SNPs by implement
 ## Citation:
 Our manuscript for BA3-SNPs-autotune has been accepted in Methods in Ecology and Evolution.  Please cite: **S.M. Mussmann, M.R. Douglas, T.K. Chafin, and M.E. Douglas 2019. BA3‐SNPs: Contemporary migration reconfigured in BayesAss for next‐generation sequence data. *Methods in Ecology and Evolution* https://doi.org/10.1111/2041-210X.13252.**
 
-## Installation & Setup:
+## Manual Installation & Setup:
 
 This program now requires Python 3.3 or greater. BA3-SNPS-autotune was designed to work on Unix based operating systems, such as various Linux distributions and Mac OS X.  To get started, clone this project to the desired location on your computer.  
 
@@ -23,9 +23,26 @@ Then modify the first line of BA3-SNPS-autotune.py to reflect the location of yo
 
 You must also install my modified version of BayesAss (BayesAss3-SNPS: https://github.com/stevemussmann/BayesAss3-SNPs). This program must be installed so that an executable named either **BA3-SNPS** or **ba3-snps** is present in your path. The autotune program will test for the presence of BA3-SNPS and report if it is not found. Please note that the autotune program is not compatible with Dr. Bruce Rannala's version of BA3 because I have altered some command line options. 
 
-## Python 2.7.x Support
+### Python 2.7.x Support
 
 Future development of this program will no longer support Python 2.7.x. However, I have made the source code available as version 1.0.0 on the "releases" page of this repository.
+
+## Docker Installation:
+
+I now provide a Docker container to streamline the installation process. If you want to avoid potential issues with dependencies or manual setup, then this is now the recommended method for running the program. To get started, pull the Docker image using the following command:
+
+```
+docker pull mussmann/ba3snps:1.0
+```
+
+Launch the container by placing the "runDocker.sh" script in the folder from which you want to run the container, then executing it as shown below. This script can be found in the "Docker" folder of the [BayesAss3-SNPs repository](https://github.com/stevemussmann/BayesAss3-SNPs).
+
+```
+./runDocker.sh
+```
+
+This script creates a folder named "data" in the directory on your machine from which you launched the Docker container. You can put any input files for ba3snps into this folder and they will be accessible inside the container (in /app/data/). Any outputs written to this folder and any of its subdirectories will still be accessible after you exit the container. If you write any output to other locations inside the container, they will be lost upon exit. In addition to [BA3-SNPs](https://github.com/stevemussmann/BayesAss3-SNPs), the countLociImmanc.sh script from the [BayesAss3-SNPs repository](https://github.com/stevemussmann/BayesAss3-SNPs), [BA3-SNPS-autotune](https://github.com/stevemussmann/BA3-SNPS-autotune), and file conversion scripts ([stacksStr2Immanc.pl and pyradStr2Immanc.pl](https://github.com/stevemussmann/file_converters)) are also installed in your $PATH in this container. 
+
 
 ## Running the program:
 
