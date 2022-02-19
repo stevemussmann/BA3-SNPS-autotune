@@ -88,6 +88,9 @@ BA3-SNPS-autotune retains the output files for the run from which the optimal mi
 * **infile.trace.txt**: This is the MCMC trace file produced by the final run of BA3-SNPS. It can be loaded into a program such as Tracer for assessment (http://tree.bio.ed.ac.uk/software/tracer/).
 
 ## Development History and Bug Fixes:
+2022-02-19:
+* Added Docker container.
+
 2019-06-15:
 * Added option for random number seed.
 
